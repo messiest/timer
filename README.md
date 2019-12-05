@@ -31,3 +31,6 @@ with timer:
 ```
 
 When the function, or context, finishes execution, the respective runtime will be output to the console.
+
+In addition to the runtime for a particular function or context, the `timer` will also output the total runtime for the entire program.
+The time reported here will be the total time elapsed from the import of `timer` to the interpreter's shutdown.
