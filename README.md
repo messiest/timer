@@ -1,7 +1,12 @@
 # timer
-A simple timer decoration for functions.
+A simple timer that can be used to track runtime.
+The purpose of this is to provide a simple, and standard, way of tracking runtime.
+This is very useful when testing implementations, and helpful when tracking the progress of longer-running programs.
 
-We have structured this repository as if it were a project, with the `timer` function being found in the `utils` directory.
+#### Notes:
+> We have structured this repository as if it were a project, with the `timer` object being defined in the [`utils`](utils/) directory, and the main program being executed in [`TEST.py`](test.py).
+> If you would like to simply see the code itself, a gist is available [here](https://gist.github.com/messiest/c6c86d60dd5544783d5eb2be448cfb8a).
+> Alternatively, you can find the code within this repository [here](utils/timing.py).
 
 ## Usage
 
@@ -16,11 +21,13 @@ To use the timer as a decorator, simply apply the decorator to a function that y
 ```python
 @timer
 def my_function():
-    # Do stuff
+    # do stuff
 ```
 
 To use the `timer` as a context manager you simply invoke it with a `with` statement:
 ```python
 with timer:
-    # Do stuff
+    # do stuff
 ```
+
+When the function, or context, finishes execution, the respective runtime will be output to the console.
