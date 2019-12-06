@@ -7,7 +7,8 @@ class Timer(ContextDecorator):
     start = time()  # global start time
 
     @staticmethod
-    def on_end():
+    @register
+    def on_end(): # will run on interpreter shutdown
         print("GLOBAL RUNTIME: ", Timer.format_time(time() - Timer.start))
 
     @staticmethod
@@ -21,7 +22,6 @@ class Timer(ContextDecorator):
 
     def __init__(self, tag=""):
         self.tag = tag
-        register(Timer.on_end)  # will run on interpreter shutdown
 
     def __enter__(self):
         self.start = time()  # instance start time
