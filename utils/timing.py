@@ -1,5 +1,5 @@
 from time import time
-from atexit import register
+from atexit import register, unregister
 from contextlib import ContextDecorator
 
 
@@ -19,6 +19,10 @@ class Timer(ContextDecorator):
             return f"{mins} minutes, {secs} seconds"
         else:
             return f"{runtime:.1f} seconds"
+
+    @classmethod
+    def disable_global_timer(cls):
+        unregister(cls.on_end)
 
     def __init__(self, tag=""):
         self.tag = tag
